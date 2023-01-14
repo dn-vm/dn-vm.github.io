@@ -22,12 +22,6 @@ jobs:
         with:
           owner: dn-vm
           repo: dnvm
-      - name: Example of consumption of the output
-        env:
-          LATEST: ${{ steps.latest_version.outputs.latest_tag }}
-          LATEST_DATE: ${{ steps.latest_version.outputs.latest_tag_published_at }}
-        run: |
-          echo "Version $LATEST was released at $LATEST_DATE"
       - name: Build site
         run: mkdir output && cp src/* output/
       - name: Replace version in template
