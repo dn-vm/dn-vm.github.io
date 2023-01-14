@@ -18,7 +18,7 @@ main() {
     local _rid="$RETVAL"
     assert_nz "$_rid" "rid"
 
-    local _latestVersion="__latest_version__" # To be replaced during publishing
+    local _latestVersion="__latestVersion__" # To be replaced during publishing
     local _url="${DNVM_FEED}/${_latestVersion}}/dnvm-${_latestVersion:1}-$_rid.tar.gz"
 
     local _dir="$(ensure mktemp -d)"
