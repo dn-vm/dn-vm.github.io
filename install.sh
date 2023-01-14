@@ -18,7 +18,8 @@ main() {
     local _rid="$RETVAL"
     assert_nz "$_rid" "rid"
 
-    local _url="${DNVM_FEED}/v0.2.4/dnvm-0.2.4-osx-x64.tar.gz"
+    local _latestVersion="__latest_version__" # To be replaced during publishing
+    local _url="${DNVM_FEED}/${_latestVersion}}/dnvm-${_latestVersion:1}-$_rid.tar.gz"
 
     local _dir="$(ensure mktemp -d)"
     local _archiveFile="${_dir}/dnvm.tar.gz"
