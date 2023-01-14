@@ -7,6 +7,7 @@ DNVM_FEED=${DNVM_FEED:-"https://github.com/dn-vm/dnvm/releases/download"}
 main() {
     downloader --check
     need_cmd uname
+    need_cmd tar
     need_cmd mktemp
     need_cmd chmod
     need_cmd mkdir
