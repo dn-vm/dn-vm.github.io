@@ -13,22 +13,15 @@ main() {
     need_cmd rm
     need_cmd rmdir
 
-    get_architecture || return 1
-    local _arch="$RETVAL"
-    assert_nz "$_arch" "arch"
+    get_rid || return 1
+    local _rid="$RETVAL"
+    assert_nz "$_rid" "rid"
 
-    local _ext=""
-    case "$_arch" in
-        *windows*)
-            _ext=".exe"
-            ;;
-    esac
+    local _url="${DNVM_FEED}/v0.2.4/dnvm-0.2.4-osx-x64.tar.gz"
 
-    local _url="${RUSTUP_UPDATE_ROOT}/dist/${_arch}/rustup-init${_ext}"
-
-    local _dir
-    _dir="$(ensure mktemp -d)"
-    local _file="${_dir}/rustup-init${_ext}"
+    local _dir="$(ensure mktemp -d)"
+    local _archiveFile="${_dir}/dnvm.tar.gz"
+    local _file="${_dir}/dnvm"
 
     local _ansi_escapes_are_valid=false
     if [ -t 2 ]; then
@@ -82,11 +75,12 @@ main() {
     fi
 
     ensure mkdir -p "$_dir"
-    ensure downloader "$_url" "$_file" "$_arch"
+    ensure downloader "$_url" "$_archiveFile" "$_rid"
+    ensure tar -xzf "$_archiveFile" -C "$_dir"
     ensure chmod u+x "$_file"
     if [ ! -x "$_file" ]; then
         printf '%s\n' "Cannot execute $_file (likely because of mounting /tmp as noexec)." 1>&2
-        printf '%s\n' "Please copy the file to a location where you can execute binaries and run ./rustup-init${_ext}." 1>&2
+        printf '%s\n' "Please copy the file to a location where you can execute binaries and run ./dnvm." 1>&2
         exit 1
     fi
 
@@ -106,6 +100,7 @@ main() {
 
     local _retval=$?
 
+    ignore rm "$_archiveFile"
     ignore rm "$_file"
     ignore rmdir "$_dir"
 
@@ -221,13 +216,9 @@ get_rid() {
 
     esac
 
-    _rid="
+    _rid="${_os}${_libc}-${_arch}"
 
     RETVAL="$_arch"
-}
-
-say() {
-    printf 'rustup: %s\n' "$1"
 }
 
 err() {
@@ -360,7 +351,7 @@ check_help_for() {
 
     case "$_arch" in
 
-        *darwin*)
+        *osx*)
         if check_cmd sw_vers; then
             case $(sw_vers -productVersion) in
                 10.*)
@@ -407,16 +398,10 @@ check_curl_for_retry_support() {
 
 }
 
-# Return cipher suite string specified by user, otherwise return strong TLS 1.2-1.3 cipher suites
-# if support by local tools is detected. Detection currently supports these curl backends:
-# GnuTLS and OpenSSL (possibly also LibreSSL and BoringSSL). Return value can be empty.
+# Return strong TLS 1.2-1.3 cipher suites if support by local tools is detected. Detection currently
+# supports these curl backends: GnuTLS and OpenSSL (possibly also LibreSSL and BoringSSL). Return
+# value can be empty.
 get_ciphersuites_for_curl() {
-    if [ -n "${RUSTUP_TLS_CIPHERSUITES-}" ]; then
-        # user specified custom cipher suites, assume they know what they're doing
-        RETVAL="$RUSTUP_TLS_CIPHERSUITES"
-        return
-    fi
-
     local _openssl_syntax="no"
     local _gnutls_syntax="no"
     local _backend_supported="yes"
@@ -452,16 +437,10 @@ get_ciphersuites_for_curl() {
     RETVAL="$_cs"
 }
 
-# Return cipher suite string specified by user, otherwise return strong TLS 1.2-1.3 cipher suites
-# if support by local tools is detected. Detection currently supports these wget backends:
-# GnuTLS and OpenSSL (possibly also LibreSSL and BoringSSL). Return value can be empty.
+# Return strong TLS 1.2-1.3 cipher suites if support by local tools is detected. Detection currently
+# supports these wget backends: GnuTLS and OpenSSL (possibly also LibreSSL and BoringSSL). Return
+# value can be empty.
 get_ciphersuites_for_wget() {
-    if [ -n "${RUSTUP_TLS_CIPHERSUITES-}" ]; then
-        # user specified custom cipher suites, assume they know what they're doing
-        RETVAL="$RUSTUP_TLS_CIPHERSUITES"
-        return
-    fi
-
     local _cs=""
     if wget -V | grep -q '\-DHAVE_LIBSSL'; then
         # "unspecified" is for arch, allows for possibility old OS using macports, homebrew, etc.
