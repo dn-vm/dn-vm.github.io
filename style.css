@@ -1,0 +1,31 @@
+
+body {
+    margin: auto;
+    margin-top: 20pt;
+    width: 80%;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+}
+main {
+    margin-top: 40pt;
+}
+.command-box {
+    margin: auto;
+    width: fit-content;
+    border-radius: 5pt;
+    padding: 5pt 20pt;
+    background-color: dimgrey;
+    color: white;
+    font-size: 12pt;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.command-box pre {
+    display: block;
+    width: fit-content;
+}
+
+.command-box button {
+    display: block;
+    float: right;
+}
