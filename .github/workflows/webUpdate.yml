@@ -27,7 +27,7 @@ jobs:
       - name: Replace version in template
         env:
           LATEST_TAG: ${{ steps.latest_version.outputs.latest_tag }}
-        run: sed -i'.bak' 's/__latestVersion__/v0.2.4/' ./output/install.sh.template
+        run: sed -i'.bak' 's/__latestVersion__/${LATEST_TAG:1}/' ./output/install.sh.template
       - name: Move template to final name
         run: mv ./output/install.sh.template ./output/install.sh && rm ./output/install.sh.template.bak
       - name: Deploy to gh-pages
