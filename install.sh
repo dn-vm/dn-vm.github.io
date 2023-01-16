@@ -95,9 +95,9 @@ main() {
             err "Unable to run interactively. Run with -y to accept defaults, --help for additional options"
         fi
 
-        ignore "$_file" "$@" < /dev/tty
+        ignore "$_file" install --self "$@" < /dev/tty
     else
-        ignore "$_file" "$@"
+        ignore "$_file" install --self "$@"
     fi
 
     local _retval=$?
