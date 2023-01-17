@@ -38,7 +38,7 @@ jobs:
         run: mv ./output/install.sh.template ./output/install.sh &&
              mv ./output/install.ps1.template ./output/install.ps1 &&
              mv ./output/releases.json.template ./output/releases.json &&
-             rm ./output/*.template.bak &&
+             rm ./output/*.template.bak
 
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v3
