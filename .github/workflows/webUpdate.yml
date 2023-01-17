@@ -32,7 +32,7 @@ jobs:
       - name: Replace version in template
         env:
           LATEST_TAG: ${{ steps.latest_version.outputs.latest_tag }}
-        run: sed -i'.bak' "s/__latestVersion__/${LATEST_TAG:1}/" ./output/*.template
+        run: sed -i'.bak' "s/__latestVersion__/${LATEST_TAG:1}/g" ./output/*.template
 
       - name: Move templates to final name
         run: mv ./output/install.sh.template ./output/install.sh &&
