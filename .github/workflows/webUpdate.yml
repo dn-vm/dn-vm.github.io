@@ -2,6 +2,8 @@
 name: Web Update
 
 on:
+  repository_dispatch:
+    types: [new_release]
   push:
     branches: [main]
 
