@@ -18,20 +18,25 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
+
       - name: Get latest dnvm release
         id: latest_version
         uses: abatilo/release-info-action@v1.3.0
         with:
           owner: dn-vm
           repo: dnvm
+
       - name: Build site
         run: mkdir output && cp src/* output/
+
       - name: Replace version in template
         env:
           LATEST_TAG: ${{ steps.latest_version.outputs.latest_tag }}
         run: sed -i'.bak' "s/__latestVersion__/${LATEST_TAG:1}/" ./output/*.template
+
       - name: Move template to final name
         run: mv ./output/install.sh.template ./output/install.sh && rm ./output/*.template.bak
+
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v3
         with:
