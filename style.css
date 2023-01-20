@@ -1,5 +1,5 @@
 
-body {
+#content {
     margin: auto;
     margin-top: 20pt;
     width: 80%;
@@ -38,4 +38,8 @@ main {
 .command-box button {
     display: block;
     float: right;
+}
+
+.github-fork-ribbon:before {
+    background-color: #090;
 }
