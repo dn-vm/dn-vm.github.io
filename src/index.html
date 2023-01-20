@@ -4,26 +4,29 @@
         <meta charset="utf-8">
         <title>dnvm - the dotnet version manager</title>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.3/gh-fork-ribbon.min.css" />
         <link href="style.css" rel="stylesheet" />
     </head>
     <body>
-        <header>
-            <h1>dnvm: a command-line tool for installing and updating dotnet SDKs</h1>
-            <a href="https://github.com/dn-vm/dnvm"><img decoding="async" loading="lazy" width="149" height="149" src="https://github.blog/wp-content/uploads/2008/12/forkme_right_white_ffffff.png?resize=149%2C149" class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a>
-        </header>
+        <a class="github-fork-ribbon" href="https://github.com/dn-vm/dnvm" data-ribbon="Fork me on GitHub" title="Fork me on GitHub">Fork me on GitHub</a>
+        <div id="content">
+            <header>
+                <h1>dnvm: a command-line tool for installing and updating dotnet SDKs</h1>
+            </header>
 
-        <main>
-            <h2>Unix</h2>
-            <h3>Copy the following command and run it in your terminal.</h3>
-            <div class="command-box">
-                <pre>curl --proto '=https' -sSf https://dnvm.net/install.sh | sh</pre>
-            </div>
-            <h2>Windows</h2>
-            <h3>Copy the following command and run it in your terminal. Must be run inside a Powershell terminal.</h3>
-            <div class="command-box">
-                <pre>Set-ExecutionPolicy RemoteSigned -Scope CurrentUser # Optional: Needed to run a remote script the first time</pre>
-                <pre>irm https://dnvm.net/install.ps1 | iex</pre>
-            </div>
-        </main>
+            <main>
+                <h2>Unix</h2>
+                <h3>Copy the following command and run it in your terminal.</h3>
+                <div class="command-box">
+                    <pre>curl --proto '=https' -sSf https://dnvm.net/install.sh | sh</pre>
+                </div>
+                <h2>Windows</h2>
+                <h3>Copy the following command and run it in your terminal. Must be run inside a Powershell terminal.</h3>
+                <div class="command-box">
+                    <pre>Set-ExecutionPolicy RemoteSigned -Scope CurrentUser # Optional: Needed to run a remote script the first time</pre>
+                    <pre>irm https://dnvm.net/install.ps1 | iex</pre>
+                </div>
+            </main>
+        </div>
     </body>
 </html>
