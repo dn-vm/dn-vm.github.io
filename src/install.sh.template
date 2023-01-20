@@ -202,11 +202,12 @@ get_rid() {
     case "$_arch" in
 
         i386 | i486 | i686 | i786 | x86)
-            _arch=x86
+            err "32-bit x86 is unsupported"
             ;;
 
         aarch64 | arm64)
-            _arch=arm64
+            # Only x64 is supported at the moment. Pick it and hope the host can emulate
+            _arch=x64
             ;;
 
         x86_64 | x86-64 | x64 | amd64)
