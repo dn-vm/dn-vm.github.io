@@ -221,7 +221,7 @@ get_rid() {
 
     _rid="${_os}${_libc}-${_arch}"
 
-    RETVAL="$_arch"
+    RETVAL="$_rid"
 }
 
 err() {
