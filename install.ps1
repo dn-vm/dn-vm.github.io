@@ -19,7 +19,7 @@ echo "Downloading dnvm"
 Invoke-WebRequest -Uri $url -OutFile "$archiveFile"
 Expand-Archive $archiveFile -DestinationPath $archiveFolder
 ls $archiveFolder
-. $file install --self
+. $file selfinstall
 
 rm "$archiveFile"
 rm "$file"
