@@ -206,8 +206,7 @@ get_rid() {
             ;;
 
         aarch64 | arm64)
-            # Only x64 is supported at the moment. Pick it and hope the host can emulate
-            _arch=x64
+            _arch=arm64
             ;;
 
         x86_64 | x86-64 | x64 | amd64)
