@@ -1,6 +1,6 @@
 
 $dnvmFeed = if ($env:DNVM_FEED) { $env:DNVM_FEED } else { "https://github.com/dn-vm/dnvm/releases/download" }
-$latestVersion = "0.4.5" # To be replaced during publish
+$latestVersion = "0.4.6" # To be replaced during publish
 
 $url = "$dnvmFeed/v$latestVersion/dnvm-$latestVersion-win-x64.zip"
 
