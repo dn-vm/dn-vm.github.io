@@ -1,4 +1,12 @@
 {
+    "latestPreview": {
+        "version": "v0.6.11"",
+        "artifacts": {
+            "linux-x64": "https://github.com/dn-vm/dnvm/releases/download/vv0.6.11"/dnvm-v0.6.11"-linux-x64.tar.gz",
+            "osx-x64": "https://github.com/dn-vm/dnvm/releases/download/vv0.6.11"/dnvm-v0.6.11"-osx-x64.tar.gz",
+            "win-x64": "https://github.com/dn-vm/dnvm/releases/download/vv0.6.11"/dnvm-v0.6.11"-win-x64.zip"
+        }
+    },
     "latestVersion": {
         "version": "v0.7.2"",
         "artifacts": {
