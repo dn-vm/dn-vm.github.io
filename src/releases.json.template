@@ -1,4 +1,12 @@
 {
+    "latestPreview": {
+        "version": "__latestPreview__",
+        "artifacts": {
+            "linux-x64": "https://github.com/dn-vm/dnvm/releases/download/v__latestPreview__/dnvm-__latestPreview__-linux-x64.tar.gz",
+            "osx-x64": "https://github.com/dn-vm/dnvm/releases/download/v__latestPreview__/dnvm-__latestPreview__-osx-x64.tar.gz",
+            "win-x64": "https://github.com/dn-vm/dnvm/releases/download/v__latestPreview__/dnvm-__latestPreview__-win-x64.zip"
+        }
+    },
     "latestVersion": {
         "version": "__latestVersion__",
         "artifacts": {
