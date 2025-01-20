@@ -4,8 +4,10 @@ name: Web Update
 on:
   repository_dispatch:
     types: [new_release]
+  workflow_dispatch:
   push:
     branches: [main]
+
 
 permissions:
   contents: write
