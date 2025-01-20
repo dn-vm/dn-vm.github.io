@@ -30,8 +30,8 @@ jobs:
           set -o pipefail
 
           releases_json=$(curl https://api.github.com/repos/dn-vm/dnvm/releases)
-          latest_stable=$(echo "$releases_json" | jq '. | map(select(.prerelease == false)) | .[0].tag_name')
-          latest_preview=$(echo "$releases_json" | jq '. | map(select(.prerelease == true)) | .[0].tag_name')
+          latest_stable=$(echo "$releases_json" | jq -r '. | map(select(.prerelease == false)) | .[0].tag_name')
+          latest_preview=$(echo "$releases_json" | jq -r '. | map(select(.prerelease == true)) | .[0].tag_name')
           echo "Latest stable: $latest_stable"
           echo "Latest preview: $latest_preview"
           sed -i'.bak' "s/__latestVersion__/${latest_stable:1}/g" ./output/*.template
