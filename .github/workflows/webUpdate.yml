@@ -19,20 +19,23 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Get latest dnvm release
-        id: latest_version
-        uses: abatilo/release-info-action@v1.3.0
-        with:
-          owner: dn-vm
-          repo: dnvm
-
       - name: Build site
         run: mkdir output && cp src/* output/
 
       - name: Replace version in template
         env:
           LATEST_TAG: ${{ steps.latest_version.outputs.latest_tag }}
-        run: sed -i'.bak' "s/__latestVersion__/${LATEST_TAG:1}/g" ./output/*.template
+        run: |
+          set -o errexit
+          set -o pipefail
+
+          releases_json=$(curl https://api.github.com/repos/dn-vm/dnvm/releases)
+          latest_stable=$(echo "$releases_json" | jq '. | map(select(.prerelease == false)) | .[0].tag_name')
+          latest_preview=$(echo "$releases_json" | jq '. | map(select(.prerelease == true)) | .[0].tag_name')
+          echo "Latest stable: $latest_stable"
+          echo "Latest preview: $latest_preview"
+          sed -i'.bak' "s/__latestVersion__/${latest_stable:1}/g" ./output/*.template
+          sed -i'.bak' "s/__latestPreview__/${latest_preview:1}/g" ./output/*.template
 
       - name: Move templates to final name
         run: mv ./output/install.sh.template ./output/install.sh &&
