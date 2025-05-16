@@ -8,11 +8,11 @@
         }
     },
     "latestVersion": {
-        "version": "0.8.4",
+        "version": "0.9.0",
         "artifacts": {
-            "linux-x64": "https://github.com/dn-vm/dnvm/releases/download/v0.8.4/dnvm-0.8.4-linux-x64.tar.gz",
-            "osx-x64": "https://github.com/dn-vm/dnvm/releases/download/v0.8.4/dnvm-0.8.4-osx-x64.tar.gz",
-            "win-x64": "https://github.com/dn-vm/dnvm/releases/download/v0.8.4/dnvm-0.8.4-win-x64.zip"
+            "linux-x64": "https://github.com/dn-vm/dnvm/releases/download/v0.9.0/dnvm-0.9.0-linux-x64.tar.gz",
+            "osx-x64": "https://github.com/dn-vm/dnvm/releases/download/v0.9.0/dnvm-0.9.0-osx-x64.tar.gz",
+            "win-x64": "https://github.com/dn-vm/dnvm/releases/download/v0.9.0/dnvm-0.9.0-win-x64.zip"
         }
     }
 }
