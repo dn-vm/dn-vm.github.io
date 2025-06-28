@@ -3,7 +3,9 @@
         "version": "__latestPreview__",
         "artifacts": {
             "linux-x64": "https://github.com/dn-vm/dnvm/releases/download/v__latestPreview__/dnvm-__latestPreview__-linux-x64.tar.gz",
+            "linux-arm64": "https://github.com/dn-vm/dnvm/releases/download/v__latestPreview__/dnvm-__latestPreview__-linux-arm64.tar.gz",
             "osx-x64": "https://github.com/dn-vm/dnvm/releases/download/v__latestPreview__/dnvm-__latestPreview__-osx-x64.tar.gz",
+            "osx-arm64": "https://github.com/dn-vm/dnvm/releases/download/v__latestPreview__/dnvm-__latestPreview__-osx-arm64.tar.gz",
             "win-x64": "https://github.com/dn-vm/dnvm/releases/download/v__latestPreview__/dnvm-__latestPreview__-win-x64.zip"
         }
     },
@@ -11,7 +13,9 @@
         "version": "__latestVersion__",
         "artifacts": {
             "linux-x64": "https://github.com/dn-vm/dnvm/releases/download/v__latestVersion__/dnvm-__latestVersion__-linux-x64.tar.gz",
+            "linux-arm64": "https://github.com/dn-vm/dnvm/releases/download/v__latestVersion__/dnvm-__latestVersion__-linux-arm64.tar.gz",
             "osx-x64": "https://github.com/dn-vm/dnvm/releases/download/v__latestVersion__/dnvm-__latestVersion__-osx-x64.tar.gz",
+            "osx-arm64": "https://github.com/dn-vm/dnvm/releases/download/v__latestVersion__/dnvm-__latestVersion__-osx-arm64.tar.gz",
             "win-x64": "https://github.com/dn-vm/dnvm/releases/download/v__latestVersion__/dnvm-__latestVersion__-win-x64.zip"
         }
     }
