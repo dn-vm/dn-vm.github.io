@@ -1,4 +1,13 @@
 
+#download-body {
+    --main-color: #f5f5ff;
+    border: solid;
+    padding-bottom: 20px;
+    border-radius: 30px;
+    border-color: var(--main-color);
+    background-color: var(--main-color);
+}
+
 #content {
     margin: auto;
     margin-top: 20pt;
