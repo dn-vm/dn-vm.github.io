@@ -223,6 +223,11 @@ get_rid() {
     RETVAL="$_rid"
 }
 
+# Print a message to stdout.
+say() {
+    printf '%s\n' "$1"
+}
+
 err() {
     say "$1" >&2
     exit 1
